@@ -1,1 +1,1 @@
-Add debugging information to release workflow to troubleshoot release creation failure
+Simplify release workflow by using softprops/action-gh-release@v1 with explicit file paths
