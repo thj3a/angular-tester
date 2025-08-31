@@ -1,1 +1,1 @@
-Update workflow file for testing
+Fix release workflow to use Poetry instead of setuptools
