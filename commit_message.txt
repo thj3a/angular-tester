@@ -1,1 +1,1 @@
-Simplify release workflow by using softprops/action-gh-release@v1 with explicit file paths
+Add permissions to release workflow to allow creating releases
