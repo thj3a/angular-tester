@@ -1,1 +1,1 @@
-Fix release workflow to use Poetry instead of setuptools
+Fix release workflow by removing Poetry configuration and using setuptools only
