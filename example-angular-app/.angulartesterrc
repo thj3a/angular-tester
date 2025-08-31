@@ -1,0 +1,20 @@
+{
+  "coverage_threshold": 85,
+  "llm_timeout": 45,
+  "max_tokens": 2500,
+  "temperature": 0.2,
+  "test_file_suffix": ".spec.ts",
+  "custom_templates": {
+    "UserCardComponent": "import { ComponentFixture, TestBed } from '@angular/core/testing';\n{{imports}}\n\ndescribe('{{component_name}}', () => {\n  let component: {{component_name}};\n  let fixture: ComponentFixture<{{component_name}}>;\n\n  beforeEach(async () => {\n    await TestBed.configureTestingModule({\n      imports: [{{component_name}}]\n    })\n    .compileComponents();\n    \n    fixture = TestBed.createComponent({{component_name}});\n    component = fixture.componentInstance;\n    fixture.detectChanges();\n  });\n\n  it('should create', () => {\n    expect(component).toBeTruthy();\n  });\n\n  // Custom template for UserCardComponent - add specific tests here\n  it('should display user information', () => {\n    // Add your custom test logic here\n    expect(component).toBeTruthy();\n  });\n});",
+    "service": "import { TestBed } from '@angular/core/testing';\n{{imports}}\n\ndescribe('{{component_name}}', () => {\n  let service: {{component_name}};\n\n  beforeEach(() => {\n    TestBed.configureTestingModule({});\n    service = TestBed.inject({{component_name}});\n  });\n\n  it('should be created', () => {\n    expect(service).toBeTruthy();\n  });\n\n  // Custom template for services - add specific tests here\n});"
+  },
+  "excluded_files": [
+    "node_modules/**",
+    "dist/**",
+    "*.d.ts"
+  ],
+  "included_files": [
+    "*.component.ts",
+    "*.service.ts"
+  ]
+}
