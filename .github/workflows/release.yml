@@ -16,16 +16,16 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-
-      - name: Install Poetry
-        run: pip install poetry
+          python-version: '3.8'
 
       - name: Install dependencies
-        run: poetry install
+        run: pip install -r requirements.txt
+
+      - name: Install build tools
+        run: pip install setuptools wheel
 
       - name: Build package
-        run: poetry build
+        run: python setup.py sdist bdist_wheel
 
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
