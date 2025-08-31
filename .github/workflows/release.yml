@@ -28,6 +28,16 @@ jobs:
           python -m pip install --editable .
           python setup.py sdist bdist_wheel
 
+      - name: Debug - List dist files
+        run: ls -la dist/
+
+      - name: Debug - Print GitHub context
+        run: |
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:

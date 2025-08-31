@@ -1,1 +1,1 @@
-Fix release workflow by using ncipollo/release-action instead of GitHub's built-in actions
+Add debugging information to release workflow to troubleshoot release creation failure
