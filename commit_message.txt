@@ -1,1 +1,1 @@
-Fix release workflow by using GitHub's built-in release actions instead of softprops/action-gh-release
+Fix release workflow by correctly extracting tag name for release creation
