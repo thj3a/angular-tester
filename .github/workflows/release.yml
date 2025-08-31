@@ -28,37 +28,8 @@ jobs:
           python -m pip install --editable .
           python setup.py sdist bdist_wheel
 
-      - name: Get Tag Name
-        id: get_tag
-        run: echo "tag_name=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ steps.get_tag.outputs.tag_name }}
-          release_name: Release ${{ steps.get_tag.outputs.tag_name }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset (wheel)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/angular_tester-*.whl
-          asset_name: angular_tester-${{ steps.get_tag.outputs.tag_name }}.whl
-          asset_content_type: application/zip
-
-      - name: Upload Release Asset (tar.gz)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/angular_tester-*.tar.gz
-          asset_name: angular_tester-${{ steps.get_tag.outputs.tag_name }}.tar.gz
-          asset_content_type: application/gzip
+          artifacts: "dist/*"
+          token: ${{ secrets.GITHUB_TOKEN }}

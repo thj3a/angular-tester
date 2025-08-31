@@ -1,1 +1,1 @@
-Fix release workflow by correctly extracting tag name for release creation
+Fix release workflow by using ncipollo/release-action instead of GitHub's built-in actions
