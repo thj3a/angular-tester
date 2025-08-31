@@ -1,1 +1,1 @@
-Fix release workflow by removing Poetry configuration and using setuptools only
+Fix release workflow by adding GitHub token for release asset upload
