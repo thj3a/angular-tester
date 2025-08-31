@@ -1,1 +1,1 @@
-Fix release workflow by adding GitHub token for release asset upload
+Fix release workflow by using GitHub's built-in release actions instead of softprops/action-gh-release
